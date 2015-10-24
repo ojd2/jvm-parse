@@ -86,7 +86,7 @@ data Expr = ExprInt 				Int
 	| ExprBool						Bool
 	| ExprAssignment				Id Exprs
 	| ExprRaise						Id Exprs
-	| ExprCacth						Exprs Id Id Exprs
+	| ExprCatch						Exprs Id Id Exprs
 	| ExprOp						Exprs Op Exprs
 	| ExprGroup						Exprs
 	    deriving Show
@@ -126,7 +126,13 @@ data Op = OpAdd
 --test5 = Program "opAddInts" ( Par ( ParId "OpAdd" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 10) ) (OpAdd) (Expression (ExprInt 5) ) )  ) )  ) ) )
 
 -- program opMinusInts : func OpMinus ExprInt 100, OpAdd ExprInt 35
-test6 = Program "opMinusInts" ( Par ( ParId "OpMinus" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 100) ) (OpMinus) (Expression (ExprInt 35) ) )  ) )  ) ) )
+-- test6 = Program "opMinusInts" ( Par ( ParId "OpMinus" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 100) ) (OpMinus) (Expression (ExprInt 35) ) )  ) )  ) ) )
+
+-- program opDivideInts : func OpMinus ExprInt 100, OpAdd ExprInt 35
+-- test7 = Program "opDivideInts" ( Par ( ParId "OpDivide" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 100) ) (OpDivide) (Expression (ExprInt 35) ) )  ) )  ) ) )
+
+-- program opDivideInts : func OpMinus ExprInt 100, OpAdd ExprInt 35
+-- test8 = Program "strComp" ( Par ( ParId "StructComp" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 20) ) (OpLess) (Expression (ExprInt 80) ) )  ) )  ) ) )
 
 
 
@@ -137,5 +143,5 @@ test6 = Program "opMinusInts" ( Par ( ParId "OpMinus" ( Struct ( StructExp ( Exp
 
 
 -- Print out test program above using AST declarations
-main = print test6
+main = print test8
 
