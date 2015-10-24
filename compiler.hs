@@ -125,16 +125,20 @@ data Op = OpAdd
 -- program opAddInts : func OpAdd ExprInt 10, OpAdd ExprInt 10
 --test5 = Program "opAddInts" ( Par ( ParId "OpAdd" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 10) ) (OpAdd) (Expression (ExprInt 5) ) )  ) )  ) ) )
 
--- program opMinusInts : func OpMinus ExprInt 100, OpAdd ExprInt 35
+-- program opMinusInts : func OpMinus ExprInt 100, OpMinus ExprInt 35
 -- test6 = Program "opMinusInts" ( Par ( ParId "OpMinus" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 100) ) (OpMinus) (Expression (ExprInt 35) ) )  ) )  ) ) )
 
--- program opDivideInts : func OpMinus ExprInt 100, OpAdd ExprInt 35
+-- program opDivideInts : func OpMinus ExprInt 100, OpDivide ExprInt 35
 -- test7 = Program "opDivideInts" ( Par ( ParId "OpDivide" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 100) ) (OpDivide) (Expression (ExprInt 35) ) )  ) )  ) ) )
 
--- program printStringInts : func String "Hello World!".
+-- program printStringInts : func String "Hello World!" func Int 42. return
 -- test8 = Program "printStringInts" ( Par ( ParId "ExprSeperator" ( Struct ( StructExp ( ExprSeperator (  ( ExprString "Hello World!" )   )  ( Expression ( ExprInt 42 ) )  )  )  ) ) )
 
+-- program printStringBool : func String "Hello World!" func Int 42. return
+-- test9 = Program "printStringBool" ( Par ( ParId "ExprSeperator" ( Struct ( StructExp ( ExprSeperator (  ( ExprString "Hello World!" )   )  ( Expression ( ExprBool True ) )  )  )  ) ) )
 
+-- program printStringBool : func String "Hello World!" func Int 42. return
+test10 = Program "opMultiplyInts" ( Par ( ParId "OpMultiply" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 235) ) (OpMultiply) (Expression (ExprInt 19) ) )  ) )  ) ) )
 
 
 
@@ -147,5 +151,5 @@ data Op = OpAdd
 
 
 -- Print out test program above using AST declarations
-main = print test8
+main = print test10
 
