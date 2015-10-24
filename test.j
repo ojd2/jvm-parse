@@ -12,7 +12,7 @@
 
 .method public static main([Ljava/lang/String;)V
 
-   ; allocate stack big enough to hold 2 items
+   ; allocate stack big enough to hold 1 items
    .limit stack 2
    .limit locals 2
   

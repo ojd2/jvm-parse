@@ -22,7 +22,7 @@
    
    ldc 10 ; load int
    ldc 5 ; load int
-   iadd ; add int
+   iadd ; add ints
    istore_0 ; store result in variable
    iload 0 ; load variable, push to top of stack
    ; invoke println

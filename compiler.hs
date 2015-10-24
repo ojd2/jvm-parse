@@ -44,7 +44,7 @@ data Par = 	ParId					Id Structs
 --			<struct> [";" <structs>]				(Statements)
 -- Structs type is defined = takes the following expressions "Struct" and "StructAlt"
 data Structs = 	Struct				Struct
-	| StructAlt						Struct Structs
+	| StructSeperator				Struct Structs
 	    deriving Show
 
 
@@ -67,7 +67,7 @@ data Struct = 	StructExp			Exprs
 -- Exprs type is defined = takes the following expressions "Expr"
 -- Alternative options are "ExprAlt"
 data Exprs = Expression 			Expr
-	| ExprAlt						Expr Exprs						
+	| ExprSeperator					Expr Exprs						
 	    deriving Show
 
 
@@ -108,7 +108,7 @@ data Op = OpAdd
 
 
 
-
+-- Abstract syntax tree expressions:
 
 -- program printInt : string "int" and ExprInt of '42' int
 -- test = Program "printInt" ( Par ( ParId "Int" ( Struct ( StructExp ( Expression ( ExprInt 42 ) ) )   ) ) )
@@ -131,8 +131,12 @@ data Op = OpAdd
 -- program opDivideInts : func OpMinus ExprInt 100, OpAdd ExprInt 35
 -- test7 = Program "opDivideInts" ( Par ( ParId "OpDivide" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 100) ) (OpDivide) (Expression (ExprInt 35) ) )  ) )  ) ) )
 
--- program opDivideInts : func OpMinus ExprInt 100, OpAdd ExprInt 35
--- test8 = Program "strComp" ( Par ( ParId "StructComp" ( Struct ( StructExp ( Expression ( ExprOp (Expression (ExprInt 20) ) (OpLess) (Expression (ExprInt 80) ) )  ) )  ) ) )
+-- program printStringInts : func String "Hello World!".
+-- test8 = Program "printStringInts" ( Par ( ParId "ExprSeperator" ( Struct ( StructExp ( ExprSeperator (  ( ExprString "Hello World!" )   )  ( Expression ( ExprInt 42 ) )  )  )  ) ) )
+
+
+
+
 
 
 

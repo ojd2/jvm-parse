@@ -19,7 +19,7 @@
    ; push java.lang.System.out (type PrintStream)
    getstatic java/lang/System/out Ljava/io/PrintStream;
    ; push int to be printed
-   ; 0 = f, 1 = t
+   ; 0 = false, 1 = true
    ldc 0
    ; invoke println
    invokevirtual java/io/PrintStream/println(Z)V ; bool print (Z)

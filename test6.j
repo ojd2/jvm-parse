@@ -12,7 +12,7 @@
 
 .method public static main([Ljava/lang/String;)V
 
-   ; allocate stack big enough to hold 3 items
+   ; allocate stack big enough to hold 2 items
    .limit stack 3 
    .limit locals 2 ; should be fine with 2
   

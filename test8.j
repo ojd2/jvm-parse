@@ -1,32 +1,48 @@
-.class public test7
+.class public test8
 .super java/lang/Object
 
 ; standard initializer
 ; default constructor
 
 .method public <init>()V
-   aload_0 ; push this
-   invokespecial java/lang/Object/<init>()V ; call super
+   aload_0
+   invokespecial java/lang/Object/<init>()V
    return
 .end method
 
 .method public static main([Ljava/lang/String;)V
 
-   ; allocate stack big enough to hold 3 items
-   .limit stack 3 
-   .limit locals 2 ; should be fine with 2
-  
-   ; push java.lang.System.out (type PrintStream)
-   getstatic java/lang/System/out Ljava/io/PrintStream;
-   ; push ints to be printed   
+   ; allocate stack big enough to hold 2 items
+   .limit stack 3
+   .limit locals 2
    
-   ldc 20 ; load int
-   ldc 80 ; load int
-   if_icmple ; if less than int
-   istore_0 ; store result in variable
-   iload 0 ; load variable, push to top of stack
+   ; push string to be printed
+   ldc "Hello World!"
+   astore 0 ; astore for strings
+   ldc 42
+   istore 1 ; istore for ints
+
+   ; push java.lang.System.out (type PrintStream)
+   ; getstatic modifies the stack. Be aware.
+   getstatic java/lang/System/out Ljava/io/PrintStream; 
+   
+   aload 0 ; 0 top of stack
+
    ; invoke println
-   invokevirtual java/io/PrintStream/println(I)V ; int print result
+   invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V ; string print
+
+   ; push java.lang.System.out (type PrintStream)
+   getstatic modifies the stack. Be aware.
+   getstatic java/lang/System/out Ljava/io/PrintStream;
+   
+   iload 1 ; 1 bottom of stack but at top after print
+
+   ; invoke println
+   invokevirtual java/io/PrintStream/println(I)V ; int print
+
+
+
+   
    ; terminate main
    return
 
