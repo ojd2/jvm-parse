@@ -1,4 +1,4 @@
-.class public test
+.class public opMinusInts
 .super java/lang/Object
 
 ; standard initializer
@@ -12,16 +12,21 @@
 
 .method public static main([Ljava/lang/String;)V
 
-   ; allocate stack big enough to hold 1 items
-   .limit stack 2
-   .limit locals 2
+   ; allocate stack big enough to hold 2 items
+   .limit stack 3 
+   .limit locals 2 ; should be fine with 2
   
    ; push java.lang.System.out (type PrintStream)
    getstatic java/lang/System/out Ljava/io/PrintStream;
-   ; push int to be printed
-   ldc 42
+   ; push ints to be printed   
+   
+   ldc 100 ; load int
+   ldc 35 ; load int
+   isub ; subtract int
+   istore_0 ; store result in variable
+   iload 0 ; load variable, push to top of stack
    ; invoke println
-   invokevirtual java/io/PrintStream/println(I)V ; int print
+   invokevirtual java/io/PrintStream/println(I)V ; int print result
    ; terminate main
    return
 

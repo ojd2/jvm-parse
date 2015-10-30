@@ -1,4 +1,4 @@
-.class public test3
+.class public returnBoolTrue
 .super java/lang/Object
 
 ; standard initializer

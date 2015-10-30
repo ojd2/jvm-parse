@@ -1,4 +1,4 @@
-.class public test5
+.class public opDivideInts
 .super java/lang/Object
 
 ; standard initializer
@@ -20,9 +20,9 @@
    getstatic java/lang/System/out Ljava/io/PrintStream;
    ; push ints to be printed   
    
-   ldc 10 ; load int
-   ldc 5 ; load int
-   iadd ; add ints
+   ldc 345 ; load int
+   ldc 15 ; load int
+   idiv ; divide int
    istore_0 ; store result in variable
    iload 0 ; load variable, push to top of stack
    ; invoke println

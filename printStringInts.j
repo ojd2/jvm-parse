@@ -1,4 +1,4 @@
-.class public test9
+.class public printStringInts
 .super java/lang/Object
 
 ; standard initializer
@@ -14,24 +14,31 @@
 
    ; allocate stack big enough to hold 2 items
    .limit stack 3
-   .limit locals 2   
+   .limit locals 2
+   
+   ; push string to be printed
+   ldc "Hello World!"
+   astore 0 ; astore for strings
+   ldc 42
+   istore 1 ; istore for ints
 
    ; push java.lang.System.out (type PrintStream)
    ; getstatic modifies the stack. Be aware.
    getstatic java/lang/System/out Ljava/io/PrintStream; 
-   ; push string to be printed
-   ldc "Hello World!"
+   
+   aload 0 ; 0 top of stack
 
    ; invoke println
    invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V ; string print
 
    ; push java.lang.System.out (type PrintStream)
+   ; getstatic modifies the stack. Be aware.
    getstatic java/lang/System/out Ljava/io/PrintStream;
-   ; push int to be printed
-   ; 0 = false, 1 = true
-   ldc 1
+   
+   iload 1 ; 1 bottom of stack but at top after print
+
    ; invoke println
-   invokevirtual java/io/PrintStream/println(Z)V ; bool print (Z)
+   invokevirtual java/io/PrintStream/println(I)V ; int print
 
    ; terminate main
    return

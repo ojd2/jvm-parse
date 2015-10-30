@@ -1,4 +1,4 @@
-.class public test10
+.class public opAddInts
 .super java/lang/Object
 
 ; standard initializer
@@ -12,7 +12,7 @@
 
 .method public static main([Ljava/lang/String;)V
 
-   ; allocate stack big enough to hold 2 items
+   ; allocate stack big enough to hold 3 items
    .limit stack 3 
    .limit locals 2 ; should be fine with 2
   
@@ -20,13 +20,11 @@
    getstatic java/lang/System/out Ljava/io/PrintStream;
    ; push ints to be printed   
    
-   ldc 235 ; load int
-   ldc 19 ; load int
-   imul ; multiply ints
-
+   ldc 10 ; load int
+   ldc 5 ; load int
+   iadd ; add ints
    istore_0 ; store result in variable
    iload 0 ; load variable, push to top of stack
-   
    ; invoke println
    invokevirtual java/io/PrintStream/println(I)V ; int print result
    ; terminate main

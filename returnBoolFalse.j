@@ -1,4 +1,4 @@
-.class public test7
+.class public returnBoolFalse
 .super java/lang/Object
 
 ; standard initializer
@@ -12,21 +12,17 @@
 
 .method public static main([Ljava/lang/String;)V
 
-   ; allocate stack big enough to hold 3 items
-   .limit stack 3 
-   .limit locals 2 ; should be fine with 2
+   ; allocate stack big enough to hold 1 item
+   .limit stack 2
+   .limit locals 1
   
    ; push java.lang.System.out (type PrintStream)
    getstatic java/lang/System/out Ljava/io/PrintStream;
-   ; push ints to be printed   
-   
-   ldc 100 ; load int
-   ldc 35 ; load int
-   idiv ; divide int
-   istore_0 ; store result in variable
-   iload 0 ; load variable, push to top of stack
+   ; push int to be printed
+   ; 0 = false, 1 = true
+   ldc 0
    ; invoke println
-   invokevirtual java/io/PrintStream/println(I)V ; int print result
+   invokevirtual java/io/PrintStream/println(Z)V ; bool print (Z)
    ; terminate main
    return
 

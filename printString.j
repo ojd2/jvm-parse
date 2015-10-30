@@ -1,4 +1,4 @@
-.class public test2
+.class public printString
 .super java/lang/Object
 
 ; standard initializer
