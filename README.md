@@ -1,6 +1,6 @@
 # Haskell Compiler to JVM Bytecode
 
-### Short Report
+### Objectives
 
 The following practical was to try and define AST datatypes for a Skel concrete syntax language and then compile small programs into JVM bytecode. The experience was incredibly beneficial and thoroughly enjoyable. To begin with, I wanted to push myself out of my comfort zone. Therefore, I decided to code the AST / compiler using Haskell. This was a huge risk, as I had never used Haskell or had I even studied compiler design before. Having said that, at the same time it gave me a new perspective to build upon and gave me greater insight into programming language design. The downside to this though, was that I did not know enough Haskell to take the compiler further and re-evaluate the initial Skel language design. Therefore, the aim was to accumulate and investigate as much as possible in the process.
 
