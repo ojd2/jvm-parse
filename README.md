@@ -1,4 +1,4 @@
-# compiler to JVM Bytecode
+# Haskell Compiler to JVM Bytecode
 
 ### Short Report
 
